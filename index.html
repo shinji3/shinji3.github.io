@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>なん実V配信動画再生プレイヤー</title>
+<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="jquery.mousewheel.min.js"></script>
+<script src="index.js"></script>
+<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+<object data="data:application/x-silverlight-2," type="application/x-silverlight-2" id="silverlight">
+<param name="windowless" value="false">
+<param name="minRuntimeVersion" value="5.1">
+<param name="enableGPUAcceleration" value="true">
+<param name="background" value="#000000">
+<param name="enableHtmlAccess" value="true">
+<param name="autoUpgrade" value="true">
+<param name="source" value="index.xaml">
+<param name="onload" value="onLoaded">
+<a href="http://go.microsoft.com/fwlink/?LinkID=149156" style="text-decoration:none">
+<img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none">
+</a>
+</object>
+<form id="form">
+<h1>なん実V配信動画再生プレイヤー</h1>
+<p>
+配信URL <input type="text" name="url" id="url">
+<input type="submit" value="再生">
+</p>
+<h2>使い方</h2>
+<p>
+マウスホイールと上下キーは音量変更<br>
+Shiftキーを押しながら上下キーで1ずつ音量変更<br>
+ESCは全画面化、Enterキーで停止と再生<br>
+音量と再生状態はタイトルに表示されます<br>
+WMV(H264+AAC)配信も再生が出来ます<br>
+再生プレイヤーのURLをスレに貼りつければ<br>
+コーデックもプレイヤーも無い人でも配信が見れます<br>
+配信URLにPeerCastのプレイリストURLを入れたら<br>
+PeerCastのWMV配信を再生することが出来ます<br>
+ブラウザはIEかSafariかFirefoxを使いましょう
+</p>
+</form>
+</body>
+</html>
