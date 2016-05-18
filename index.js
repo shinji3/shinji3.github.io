@@ -33,20 +33,6 @@ var onLoaded = function (sender, args) {
         title_change();
     });
 
-    mediaElement.addEventListener("MediaOpened", function (sender, args) {
-        title_change();
-    });
-
-    mediaElement.addEventListener("MediaFailed", function (sender, args) {
-alert("MediaFailed");
-        title_change();
-    });
-
-    mediaElement.addEventListener("MediaEnded", function (sender, args) {
-alert("MediaEnded");
-        title_change();
-    });
-
     grid.addEventListener("KeyDown", function (sender, args) {
         switch (args.Key) {
             case 3:
