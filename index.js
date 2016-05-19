@@ -26,8 +26,11 @@ var onLoaded = function (sender, args) {
     }
 
     var title_change = function () {
-        document.title = Math.round(mediaElement.Volume * 100) + " " + mediaElement.CurrentState + " " + title;
+        var seconds = parseInt(mediaElement.Position.Seconds);
+        document.title = Math.round(mediaElement.Volume * 100) + " " + mediaElement.CurrentState + " " + parseInt((seconds / 60) / 60) + ":" + ("0" + parseInt((seconds / 60) % 60)).slice(-2) + ":" + ("0" + parseInt(seconds % 60)).slice(-2) + " " + title;
     };
+
+    setInterval(title_change, 1000);
 
     mediaElement.addEventListener("CurrentStateChanged", function (sender, args) {
         title_change();
@@ -52,6 +55,14 @@ var onLoaded = function (sender, args) {
             case 17:
                 mediaElement.Volume -= args.Shift ? 0.01 : 0.05;
                 title_change();
+                break;
+            case 43:
+                var url = prompt("現在のページで開く配信URLを入力して下さい", "");
+                if (url) location.assign("?url=" + encodeURIComponent(url));
+                break;
+            case 49:
+                var url = prompt("新しいタブで開く配信URLを入力して下さい", "");
+                if (url) open("?url=" + encodeURIComponent(url));
                 break;
         }
     });
