@@ -58,7 +58,10 @@ var onLoaded = function (sender, args) {
                 break;
             case 43:
                 var url = prompt("現在のページで開く配信URLを入力して下さい", "");
-                if (url) location.assign("?url=" + encodeURIComponent(url));
+                if (url) {
+                    mediaElement.Stop();
+                    location.assign("?url=" + encodeURIComponent(url));
+                }
                 break;
             case 49:
                 var url = prompt("新しいタブで開く配信URLを入力して下さい", "");
